@@ -1,6 +1,6 @@
 #!/usr/bin/python3.7
 # UTF8
-# Date: 
+# Date: Thu 11 Jul 2019 16:05:31 CEST
 # Author: Nicolas Flandrois
 
 import json

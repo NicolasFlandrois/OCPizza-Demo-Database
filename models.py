@@ -1,12 +1,10 @@
 #!/usr/bin/python3.7
 # UTF8
-# Date: 
+# Date: Thu 11 Jul 2019 16:05:53 CEST
 # Author: Nicolas Flandrois
 
-from sqlalchemy import Column, Integer, Float, String, Boolean, ForeignKey
-from sqlalchemy import create_engine, MetaData
+from sqlalchemy import Column, Integer, Float, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
 from connection import connect
 
 session = connect()
@@ -96,7 +94,7 @@ class Orders(Base):
     id = Column(Integer, primary_key=True)
     date = Column(Datetime()) # Using SQLALCHEMY Date or Datetime?
     client = Column(Integer, ForeignKey('client.id'))
-    pizza = Column(Integer, ForeignKey('pizza.id'))  # What is the order askq for more than 1 product?
+    pizza = Column(Integer, ForeignKey('pizza.id'))  # What if ordered for more than 1 product?
     vat = Column(Integer, ForeignKey('vat.id'))
     totalpriceht = Column(Integer, ForeignKey('pizza.price'))
     orderstatus = Column(Integer, ForeignKey('orderstatus.id'))
