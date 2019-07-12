@@ -17,7 +17,7 @@ class Pizza(Base):
     __tablename__ = "product"
     id = Column(Integer, primary_key=True)
     name = Column(String(50))
-    priceht = Column(Float(scale=2))
+    priceht = Column(Float(4, scale=2))  # In local currency
     
 
 class Ingredients(Base):
@@ -27,15 +27,16 @@ class Ingredients(Base):
     ingredient = Column(String(50), nullable=False)
     # Delivery Unit
     delivunit = Column(String(10), nullable=False)
-    # delivqty  # Quantity of unit in a delivery
     # Unit of Storage
     storunit = Column(String(10), nullable=False)
     # Storage quantity per delivery unit
-    storqty_delivunit = Column(Integer(10), nullable=False)
+    storqty_delivunit = Column(Integer(4), nullable=False)
     # Unit used during production
     produnit = Column(String(10), nullable=False)
-    # quantity of unit use during production in 1 storage unit
-    prodqty_storunit = Column(Integer(10), nullable=False)
+    # Quantity of unit use during production in 1 storage unit
+    prodqty_storunit = Column(Integer(4), nullable=False)
+    # Purchasing cost in Delivery units (in local currency)
+    cost = Column(Float(4, scale=2))
 
 class Recipe(Base):
     """docstring for Recipe"""
@@ -43,11 +44,7 @@ class Recipe(Base):
     id = Column(Integer, primary_key=True)
     pizza = Column(Integer, ForeignKey('pizza.id'), nullable=False)
     ingredient = Column(Integer, ForeignKey('ingredient.id'), nullable=False)
-
-# class Units(Base):
-#     """Conversion Table Units Quantity Units Delivered/Stored/Used"""
-#     __tablename__ = "units"
-#     id = Column(Integer, primary_key=True)
+    quantity = Column(Float(4, scale=2))
 
 class Stock(Base):
     """docstring for Stock"""
@@ -92,10 +89,10 @@ class Orders(Base):
     """docstring for Orders"""
     __tablename__ = "Orders"
     id = Column(Integer, primary_key=True)
-    date = Column(Datetime()) # Using SQLALCHEMY Date or Datetime?
+    date = Column(Datetime())
     client = Column(Integer, ForeignKey('client.id'))
     pizza = Column(Integer, ForeignKey('pizza.id'))  # What if ordered for more than 1 product?
     vat = Column(Integer, ForeignKey('vat.id'))
-    totalpriceht = Column(Integer, ForeignKey('pizza.price'))
+    totalpriceht = Column(Integer, ForeignKey('pizza.price'))   # In local currency
     orderstatus = Column(Integer, ForeignKey('orderstatus.id'))
     paymentstatus = Column(Integer, ForeignKey('payementstatus.id'))
