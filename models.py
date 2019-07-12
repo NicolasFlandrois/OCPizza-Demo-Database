@@ -17,14 +17,14 @@ class Pizza(Base):
     __tablename__ = "product"
     id = Column(Integer, primary_key=True)
     name = Column(String(50))
-    priceht = Column(Float(4, scale=2))  # In local currency
+    price_ht = Column(Float(4, scale=2))  # In local currency
     
 
 class Ingredients(Base):
     """docstring for Ingredient"""
     __tablename__ = "ingredient"
     id = Column(Integer, primary_key=True)
-    ingredient = Column(String(50), nullable=False)
+    name = Column(String(50), nullable=False)
     # Delivery Unit
     delivunit = Column(String(10), nullable=False)
     # Unit of Storage
@@ -50,18 +50,18 @@ class Stock(Base):
     """docstring for Stock"""
     __tablename__ = "stock"
     id = Column(Integer, primary_key=True)
-    product = Column(Integer, ForeignKey('ingredient.id'), nullable=False)
+    ingredient = Column(Integer, ForeignKey('ingredient.id'), nullable=False)
     quantity = Column(Integer(10))
 
-class Payementstatus(Base):
+class Payement_status(Base):
     """docstring for PayementStatus"""
-    __tablename__ = "payementstatus"
+    __tablename__ = "payement_status"
     id = Column(Integer, primary_key=True)
     status = Column(String(20))
 
-class Orderstatus(Base):
+class Order_status(Base):
     """docstring for Order Status"""
-    __tablename__ = "orderstatus"
+    __tablename__ = "order_status"
     id = Column(Integer, primary_key=True)
     status = Column(String(20))
 
@@ -76,14 +76,14 @@ class Client(Base):
     address1 = Column(String(100), nullable=False)
     address2 = Column(String(100))
     address3 = Column(String(100))
-    invoiceaddress = Column(String(100), nullable=False)
+    invoice_address = Column(String(100), nullable=False)
 
 
 class Vat(Base):
     """docstring for Vat"""
     __tablename__ = "Vat"
     id = Column(Integer, primary_key=True)
-    vat = Column(Float(scale=4))
+    rate = Column(Float(scale=4))
 
 class Orders(Base):
     """docstring for Orders"""
@@ -93,6 +93,6 @@ class Orders(Base):
     client = Column(Integer, ForeignKey('client.id'))
     pizza = Column(Integer, ForeignKey('pizza.id'))  # What if ordered for more than 1 product?
     vat = Column(Integer, ForeignKey('vat.id'))
-    totalpriceht = Column(Integer, ForeignKey('pizza.price'))   # In local currency
-    orderstatus = Column(Integer, ForeignKey('orderstatus.id'))
-    paymentstatus = Column(Integer, ForeignKey('payementstatus.id'))
+    total_price_ht = Column(Integer, ForeignKey('pizza.price'))   # In local currency
+    order_status = Column(Integer, ForeignKey('order_status.id'))
+    payment_status = Column(Integer, ForeignKey('payement_status.id'))
