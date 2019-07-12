@@ -7,11 +7,10 @@ import json
 
 from sqlalchemy import Column, Integer, String, Boolean, Table
 from sqlalchemy import create_engine, MetaData, ForeignKey
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, query
-from sqlalchemy_utils import create_database, database_exists
+from sqlalchemy.ext.declarative import declarative_base
 
-from connection import connect
+from connection import connect, createdb
 from datetime import datetime
 
 from models import Pizza, Ingredients, Recipe, Stock, Payementstatus
@@ -21,23 +20,13 @@ from models import Orderstatus, Client, Vat, Orders
 startTime = datetime.now()
 print("Setup in progress. Please wait.")
 
-# 1/ create DB in mysql named: off1
-with open("config.json") as f:
-    config = json.load(f)
+if createdb('ocpizza'):
 
-    username = config["username"]
-    password = config["password"]
-    host = config["host"]
-    port = config["port"]
+    # 2/connect to database
+    Base = declarative_base()    
+    engine = connect('ocpizza')
 
-if not database_exists(f'mysql+pymysql://{username}:{password}@{host}/ocpizza'):
-    create_database(f'mysql+pymysql://{username}:{password}@{host}/ocpizza')
-
-    # 2/connect to database: off1
-    Base = declarative_base()
-    engine = connect()
-
-    # 3/ Create tables in DB, named: category & product
+    # Create tables in DB
     metadata = MetaData(engine) # Create and factor this in Connect function
 
     pizza = Table(
@@ -123,7 +112,7 @@ if not database_exists(f'mysql+pymysql://{username}:{password}@{host}/ocpizza'):
         Column('payment_status', Integer, ForeignKey('payement_status.id'))
         )
 
-    # 5/ creat all tables
+    # Creat all tables
     metadata.create_all(engine) # Create and factor this in Connect function
 
     # 4/ Fill in info to database according to tables, with seed data.
