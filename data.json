@@ -1,48 +1,275 @@
 {
 	"pizzas":[
-		{"champipy":"13.99"},
-		{"peperony":"12.50"},
-		{"napoli":"15"},
-		{"margherita":"11"},
-		{"regina":"9.99"},
-		{"pouloulou":"14"}
+		{"name":"champipy", "price":"13.99", "vat":0.07},
+		{"name":"peperony", "price":"12.50", "vat":0.07},
+		{"name":"napoli", "price":"15", "vat":0.07},
+		{"name":"margherita", "price":"11", "vat":0.07},
+		{"name":"regina", "price":"9.99", "vat":0.07},
+		{"name":"pouloulou", "price":"14", "vat":0.07}
 	],
+
 	"ingredients":[
-		name
-		delivunit
-		storunit
-		storqty_delivunit
-		produnit
-		prodqty_storunit
+		{"name":"pâte à Pizza",
+			"delivunit":"kg",
+			"storunit":"kg",
+			"storqty_delivunit":1,
+			"produnit":"g",
+			"prodqty_storunit":2},
+		{"name":"crême fraiche",
+			"delivunit":"carton",
+			"storunit":"l",
+			"storqty_delivunit":6,
+			"produnit":"càs",
+			"prodqty_storunit":67},
+		{"name":"mozzarella",
+			"delivunit":"carton",
+			"storunit":"kg",
+			"storqty_delivunit":10,
+			"produnit":"g",
+			"prodqty_storunit":1000},
+		{"name":"lardons",
+			"delivunit":"carton",
+			"storunit":"kg",
+			"storqty_delivunit":5,
+			"produnit":"g",
+			"prodqty_storunit":1000},
+		{"name":"oignons",
+			"delivunit":"sac",
+			"storunit":"kg",
+			"storqty_delivunit":10,
+			"produnit":"càs",
+			"prodqty_storunit":66},
+		{"name":"jambon",
+			"delivunit":"kg",
+			"storunit":"kg",
+			"storqty_delivunit":1,
+			"produnit":"g",
+			"prodqty_storunit":1000},
+		{"name":"origan",
+			"delivunit":"carton",
+			"storunit":"kg",
+			"storqty_delivunit":5,
+			"produnit":"càs",
+			"prodqty_storunit":66},
+		{"name":"basilic",
+			"delivunit":"carton",
+			"storunit":"kg",
+			"storqty_delivunit":5,
+			"produnit":"càs",
+			"prodqty_storunit":66},
+		{"name":"sauce tomate",
+			"delivunit":"carton",
+			"storunit":"bocal",
+			"storqty_delivunit":9,
+			"produnit":"càs",
+			"prodqty_storunit":80},
+		{"name":"saucisson peperoni",
+			"delivunit":"carton",
+			"storunit":"kg",
+			"storqty_delivunit":6,
+			"produnit":"g",
+			"prodqty_storunit":1000},
+		{"name":"fillets anchois",
+			"delivunit":"carton",
+			"storunit":"bocal",
+			"storqty_delivunit":20,
+			"produnit":"unité",
+			"prodqty_storunit":100},
+		{"name":"capres",
+			"delivunit":"carton",
+			"storunit":"bocal",
+			"storqty_delivunit":30,
+			"produnit":"g",
+			"prodqty_storunit":250},
+		{"name":"emental rapé",
+			"delivunit":"carton",
+			"storunit":"kg",
+			"storqty_delivunit":10,
+			"produnit":"g",
+			"prodqty_storunit":1000},
+		{"name":"olives noires",
+			"delivunit":"carton",
+			"storunit":"bocal",
+			"storqty_delivunit":15,
+			"produnit":"unité",
+			"prodqty_storunit":250},
+		{"name":"huile d'olive",
+			"delivunit":"carton",
+			"storunit":"bouteilles",
+			"storqty_delivunit":12,
+			"produnit":"càs",
+			"prodqty_storunit":50},
+		{"name":"champignon",
+			"delivunit":"carton",
+			"storunit":"kg",
+			"storqty_delivunit":2,
+			"produnit":"g",
+			"prodqty_storunit":1000},
+		{"name":"poulet",
+			"delivunit":"carton",
+			"storunit":"kg",
+			"storqty_delivunit":5,
+			"produnit":"g",
+			"prodqty_storunit":1000},
+		{"name":"ananas",
+			"delivunit":"carton",
+			"storunit":"kg",
+			"storqty_delivunit":8,
+			"produnit":"g",
+			"prodqty_storunit":1000},
+		{"name":"parmesan",
+			"delivunit":"carton",
+			"storunit":"kg",
+			"storqty_delivunit":5,
+			"produnit":"g",
+			"prodqty_storunit":1000},
+		{"name":"coriandre",
+			"delivunit":"carton",
+			"storunit":"kg",
+			"storqty_delivunit":2,
+			"produnit":"càs",
+			"prodqty_storunit":67},
 	],
-	"recipes":{
-		pizza
-		ingredient
-		quantity
-	},
-	"stocks":{
-		ingredient
-		quantity
-	},
-	"pay_status":{
-		status_List
-	},
-	"order_status":{
-		status_List
-	},
-	"vat":{
-		rate_List
-	},
-	"clients":{
-		family_name
-		first_name
-		email
-		phone
-		address1
-		address2
-		address3
-		invoice_address
-	},
+
+	"recipes":[
+		{"champipy":{
+			"pâte à Pizza":500,
+			"crême fraiche":2,
+			"mozzarella":100,
+			"champignon":70,
+			"lardons":100,
+			"oignons":20,
+			"jambon":100,
+			"origan":1
+	}},
+		{"peperony":{
+			"pâte à Pizza":500,
+			"sauce tomate":3,
+			"mozzarella":100,
+			"saucisson peperoni":20
+	}},
+		{"napoly":{
+			"pâte à Pizza":500,
+			"sauce tomate":3,
+			"fillets Anchois":12,
+			"capres":30,
+			"emental rapé":100,
+			"olives noires":12,
+			"origan":1
+	}},
+		{"margherita":{
+			"pâte à Pizza":500,
+			"sauce tomate":3,
+			"mozzarella":100,
+			"huile d'olive":1,
+			"basilic":1
+		}},
+		{"regina":{
+			"pâte à Pizza":500,
+			"sauce tomate":3,
+			"mozzarella":100,
+			"jambon":100,
+			"champignon":50
+		}},
+		{"pouloulou":{
+			"pâte à Pizza":500,
+			"sauce tomate":3,
+			"mozzarella":100,
+			"poulet":120,
+			"ananas":80,
+			"coriandre":1,
+			"parmesan":50
+		}}
+	],
+	
+	"stocks":[
+		{"name":"pâte à Pizza", "quantity":6},
+		{"name":"crême fraiche", "quantity":10},
+		{"name":"mozzarella", "quantity":9},
+		{"name":"lardons", "quantity":8},
+		{"name":"oignons", "quantity":7},
+		{"name":"jambon", "quantity":6},
+		{"name":"origan", "quantity":5},
+		{"name":"sauce tomate", "quantity":4},
+		{"name":"saucisson peperoni", "quantity":3},
+		{"name":"fillets anchois", "quantity":2},
+		{"name":"capres", "quantity":9},
+		{"name":"emental rapé", "quantity":5},
+		{"name":"olives noires", "quantity":6},
+		{"name":"huile d'olive", "quantity":7},
+		{"name":"champignon", "quantity":8},
+		{"name":"poulet", "quantity":1},
+		{"name":"ananas", "quantity":3},
+		{"name":"coriandre", "quantity":2},
+		{"name":"basilic", "quantity":4},
+		{"name":"parmesan", "quantity":6}
+
+	],
+	
+	"pay_status":[
+		"paid online",
+		"will pay cash at delivery",
+		"will pay by check at delivery",
+		"will pay by credit card at delivery",
+		"paid at delivery",
+		"not paid at delivery"
+	],
+	
+	"order_status":[
+		"new order",
+		"ordered, waiting to be prepared",
+		"in preparation",
+		"prepared, waiting for delivery",
+		"delivery in process",
+		"delivered",
+		"canceled",
+		"loss"
+	],
+
+	"vat":[0.07, 0.055, 0.2],
+	
+	"clients":[
+		{"family_name":"dupond",
+			"first_name":"george",
+			"email":"george.dupond@boggus.com",
+			"phone":"0612345677",
+			"address1":"1 rue de la gare, 38200, tarte ville",
+			"address2":"",
+			"address3":"",
+			"invoice_address":"1 rue de la gare, 38200, tarte ville"},
+		{"family_name":"champolion",
+			"first_name":"leon",
+			"email":"l.champolion@fakemail.com",
+			"phone":"0712345677",
+			"address1":"entreprise bidule, Tour montparnasse, 69007, smallville",
+			"address2":"",
+			"address3":"",
+			"invoice_address":"2 rue de la mairie, 38200, tarte ville"},
+		{"family_name":"antoine",
+			"first_name":"anne-marise",
+			"email":"am-antoine@fakemail.com",
+			"phone":"0698765432",
+			"address1":"66 place de la bibliothèque, 69003, lyon",
+			"address2":"entreprise bidule, Tour montparnasse, 69007, smallville",
+			"address3":"",
+			"invoice_address":"66 place de la bibliothèque, 69003, lyon"},
+		{"family_name":"gates",
+			"first_name":"billy",
+			"email":"b.gates@boggus.com",
+			"phone":"0732658749",
+			"address1":"Mirrosoft HQ, penthouse, mirrosoft tower, 1 mirrosoft avenue, 38250 metropolis",
+			"address2":"",
+			"address3":"",
+			"invoice_address":"Mirrosoft HQ, penthouse, microsoft tower, 1 mirrosoft avenue, 38250 metropolis"},
+		{"family_name":"Suckerborg",
+			"first_name":"marcus aurelius",
+			"email":"ma.suck@fakebouque.com",
+			"phone":"0798678325",
+			"address1":"Allée des mimosas, 69003, Lyon",
+			"address2":"fakebouque tower, avenue de l'innovation, 69130, Ghotham City",
+			"address3":"",
+			"invoice_address":}
+	],
 	"orders":{
 		datetime
 		client_id
