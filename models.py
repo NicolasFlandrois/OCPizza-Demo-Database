@@ -5,9 +5,10 @@
 
 from sqlalchemy import Column, Integer, Float, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.types import DateTime
 from connection import connect
 
-session = connect()
+session = connect('ocpizza')
 
 Base = declarative_base()
 
@@ -17,7 +18,7 @@ class Pizza(Base):
     __tablename__ = "product"
     id = Column(Integer, primary_key=True)
     name = Column(String(50))
-    price_ht = Column(Float(4, scale=2))  # In local currency
+    price_ht = Column(Float(4, decimal_return_scale=2))  # In local currency
     vat = Column(Integer, ForeignKey('vat.id'))
     
 
@@ -31,13 +32,13 @@ class Ingredients(Base):
     # Unit of Storage
     storunit = Column(String(10), nullable=False)
     # Storage quantity per delivery unit
-    storqty_delivunit = Column(Integer(4), nullable=False)
+    storqty_delivunit = Column(Integer, nullable=False)
     # Unit used during production
     produnit = Column(String(10), nullable=False)
     # Quantity of unit use during production in 1 storage unit
-    prodqty_storunit = Column(Integer(4), nullable=False)
+    prodqty_storunit = Column(Integer, nullable=False)
     # Purchasing cost in Delivery units (in local currency)
-    cost = Column(Float(4, scale=2))
+    cost = Column(Float(4, decimal_return_scale=2))
 
 class Recipe(Base):
     """docstring for Recipe"""
@@ -45,14 +46,14 @@ class Recipe(Base):
     id = Column(Integer, primary_key=True)
     pizza = Column(Integer, ForeignKey('pizza.id'), nullable=False)
     ingredient = Column(Integer, ForeignKey('ingredient.id'), nullable=False)
-    quantity = Column(Float(4, scale=2))
+    quantity = Column(Float(4, decimal_return_scale=2))
 
 class Stock(Base):
     """docstring for Stock"""
     __tablename__ = "stock"
     id = Column(Integer, primary_key=True)
     ingredient = Column(Integer, ForeignKey('ingredient.id'), nullable=False)
-    quantity = Column(Integer(10))
+    quantity = Column(Integer)
 
 class Payement_status(Base):
     """docstring for PayementStatus"""
@@ -84,13 +85,13 @@ class Vat(Base):
     """docstring for Vat"""
     __tablename__ = "Vat"
     id = Column(Integer, primary_key=True)
-    rate = Column(Float(scale=4))
+    rate = Column(Float(decimal_return_scale=4))
 
 class Orders(Base):
     """docstring for Orders"""
     __tablename__ = "Orders"
     id = Column(Integer, primary_key=True)
-    date = Column(Datetime())
+    date = Column(DateTime)
     client = Column(Integer, ForeignKey('client.id'))
     pizza = Column(Integer, ForeignKey('pizza.id'))  # What if ordered for more than 1 product?
     vat = Column(Integer, ForeignKey('vat.id'))
