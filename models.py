@@ -18,6 +18,7 @@ class Pizza(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(50))
     price_ht = Column(Float(4, scale=2))  # In local currency
+    vat = Column(Integer, ForeignKey('vat.id'))
     
 
 class Ingredients(Base):

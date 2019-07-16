@@ -34,6 +34,7 @@ if createdb('ocpizza'):
         Column('id', Integer, primary_key=True),
         Column('name', String(50)),
         Column('price_ht', Float(4, scale=2))
+        Column('vat', Integer, ForeignKey('vat.id'))
         )
 
     ingredient = Table(
