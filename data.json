@@ -1,11 +1,11 @@
 {
 	"pizzas":[
-		{"name":"champipy", "price":"13.99", "vat":0.07},
-		{"name":"peperony", "price":"12.50", "vat":0.07},
-		{"name":"napoli", "price":"15", "vat":0.07},
-		{"name":"margherita", "price":"11", "vat":0.07},
-		{"name":"regina", "price":"9.99", "vat":0.07},
-		{"name":"pouloulou", "price":"14", "vat":0.07}
+		{"name":"champipy", "price":13.99, "vat":0.07},
+		{"name":"peperony", "price":12.50, "vat":0.07},
+		{"name":"napoli", "price":15, "vat":0.07},
+		{"name":"margherita", "price":11, "vat":0.07},
+		{"name":"regina", "price":9.99, "vat":0.07},
+		{"name":"pouloulou", "price":14, "vat":0.07}
 	],
 
 	"ingredients":[
@@ -207,23 +207,23 @@
 	],
 	
 	"pay_status":[
-		"paid online",
-		"will pay cash at delivery",
-		"will pay by check at delivery",
-		"will pay by credit card at delivery",
-		"paid at delivery",
-		"not paid at delivery"
+		"payé en ligne",
+		"paiement à la livraison, espèces",
+		"paiement à la livraison, chèques",
+		"paiement à la livraison, carte bancaire",
+		"payé à livraison",
+		"non payé à livraison"
 	],
 	
 	"order_status":[
-		"new order",
-		"ordered, waiting to be prepared",
-		"in preparation",
-		"prepared, waiting for delivery",
-		"delivery in process",
-		"delivered",
-		"canceled",
-		"loss"
+		"nouvelle commande",
+		"commandée, en attente de préparation",
+		"en préparation",
+		"préparée, en attente de livraison",
+		"en cours de livraison",
+		"livrée",
+		"annulée",
+		"perdue"
 	],
 
 	"vat":[0.07, 0.055, 0.2],
@@ -270,13 +270,41 @@
 			"address3":"",
 			"invoice_address":}
 	],
-	"orders":{
-		datetime
-		client_id
-		pizza_id
-		vat
-		total_price_ht
-		order_status
-		pay_status
+	"orders":[
+		{
+		"datetime":[2019, 7, 16, 13, 39, 56],
+		"client_name":"gates",
+		"pizza_name":"pouloulou",
+		"vat":0.07,
+		"total_price_ht":14,
+		"order_status":"commandée, en attente de préparation",
+		"pay_status":"paiement à la livraison, espèces",
 	},
-}
+		{
+		"datetime":[2019, 7, 16, 13, 39, 50],
+		"client_name":"Suckerborg",
+		"pizza_name":"regina",
+		"vat":0.07,
+		"total_price_ht":9.99,
+		"order_status":"en cours de livraison",
+		"pay_status":"paiement à la livraison, carte bancaire",
+	},
+		{
+		"datetime":[2019, 7, 16, 12, 39, 56],
+		"client_name":"dupond",
+		"pizza_name":"peperony",
+		"vat":0.07,
+		"total_price_ht":12.50,
+		"order_status":"livrée",
+		"pay_status":"payé à livraison",
+	},
+		{
+		"datetime":[2019, 7, 16, 13, 40, 56],
+		"client_name":"champolion",
+		"pizza_name":"champipy",
+		"vat":0.07,
+		"total_price_ht":13.99,
+		"order_status":"en préparation",
+		"pay_status":"payé en ligne",
+	},
+]
