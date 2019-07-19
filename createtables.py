@@ -103,3 +103,14 @@ def createtables(name):
     Base.metadata.create_all(engine)
     # Session = sessionmaker(bind=engine)
     # session = Session()
+# python setup.py
+# Setup in progress. Please wait.
+# This database din't exist. Creation in process. Please wait.
+# Traceback (most recent call last):
+#   File "setup.py", line 30, in <module>
+#     createtables('ocpizza')
+#   File "/media/odin/RAGNAROCK_BACKUP/OCPizza/createtables.py", line 103, in createtables
+#     Base.metadata.create_all(engine)
+#   File "/home/odin/.pyenv/versions/3.7.0/lib/python3.7/site-packages/sqlalchemy/sql/schema.py", line 4286, in create_all
+#     bind._run_visitor(
+# AttributeError: 'Session' object has no attribute '_run_visitor'
