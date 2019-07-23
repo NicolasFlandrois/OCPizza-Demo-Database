@@ -33,7 +33,7 @@ if checkdb('ocpizza') == True:
     # createtables('ocpizza')
 
     Base = declarative_base()
-    engine = connect('ocpizza')
+    # engine = connect('ocpizza')
     metadata = MetaData(bind=engine)
     
     vat = Table(
@@ -123,7 +123,7 @@ if checkdb('ocpizza') == True:
         )
 
     # Creat all tables
-    # metadata.create_all(engine)
+    Base.metadata.create_all(engine)
     # Base.metadata.create_all(engine, tables=vat)
 
     # Then populate the DB
