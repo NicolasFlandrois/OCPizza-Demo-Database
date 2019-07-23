@@ -94,7 +94,5 @@ class Orders(Base):
     date = Column(DateTime)
     client = Column(Integer, ForeignKey('client.id'))
     pizza = Column(Integer, ForeignKey('pizza.id'))  # What if ordered for more than 1 product?
-    vat = Column(Integer, ForeignKey('vat.id'))
-    total_price_ht = Column(Integer, ForeignKey('pizza.price'))   # In local currency
     order_status = Column(Integer, ForeignKey('order_status.id'))
     payment_status = Column(Integer, ForeignKey('payement_status.id'))

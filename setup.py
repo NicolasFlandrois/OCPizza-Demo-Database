@@ -10,8 +10,6 @@ from sqlalchemy.orm import sessionmaker, query
 from connection import connect, createdb, checkdb
 from datetime import datetime
 
-from models import Pizza, Ingredients, Recipe, Stock, Payement_status
-from models import Order_status, Client, Vat, Orders
 
 # from createtables import createtables
 
@@ -21,21 +19,21 @@ from sqlalchemy.types import DateTime
 # from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-from connection import connect
+from connection import connect, engine
 
 startTime = datetime.now()
 print("Setup in progress. Please wait.")
 
 if checkdb('ocpizza') == True:
     createdb('ocpizza')
-    engine = connect('ocpizza')
+    session = connect('ocpizza')
 
     # createtables('ocpizza')
 
     Base = declarative_base()
-    # engine = connect('ocpizza')
+    engine = engine('ocpizza')
     metadata = MetaData(bind=engine)
-    
+
     vat = Table(
         'vat', metadata,
         Column('id', Integer, primary_key=True),
@@ -116,15 +114,12 @@ if checkdb('ocpizza') == True:
         Column('date', DateTime),
         Column('client', Integer, ForeignKey('client.id')),
         Column('pizza', Integer, ForeignKey('pizza.id')),  # What if ordered for more than 1 product?
-        Column('vat', Integer, ForeignKey('vat.id')),
-        Column('total_price_ht', Integer, ForeignKey('pizza.price')),   # In local currency
         Column('order_status', Integer, ForeignKey('order_status.id')),
         Column('payment_status', Integer, ForeignKey('payement_status.id'))
-        )
-
+        )   
+    
     # Creat all tables
-    Base.metadata.create_all(engine)
-    # Base.metadata.create_all(engine, tables=vat)
+    metadata.create_all(engine)
 
     # Then populate the DB
     # 5/ Create a configured "Session" class
