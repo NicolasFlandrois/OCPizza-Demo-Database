@@ -1,18 +1,23 @@
+#!/usr/bin/python3.7
+# UTF8
+# Date: Tue 23 Jul 2019 15:45:15 CEST
+# Author: Nicolas Flandrois
+
 from sqlalchemy import MetaData
 from sqlalchemy import Column, Integer, String, Boolean, Table, ForeignKey, Float
 from sqlalchemy.types import DateTime
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-from connection import connect
+from connection import engine
 
 
 def createtables(name):
     """Create tables in OC Pizza DB"""
     Base = declarative_base()
-    engine = connect(name)
-    metadata = MetaData(bind=engine)
-    
+    engin = engine(name)
+    metadata = MetaData(bind=engin)
+
     vat = Table(
         'vat', metadata,
         Column('id', Integer, primary_key=True),
@@ -93,24 +98,9 @@ def createtables(name):
         Column('date', DateTime),
         Column('client', Integer, ForeignKey('client.id')),
         Column('pizza', Integer, ForeignKey('pizza.id')),  # What if ordered for more than 1 product?
-        Column('vat', Integer, ForeignKey('vat.id')),
-        Column('total_price_ht', Integer, ForeignKey('pizza.price')),   # In local currency
         Column('order_status', Integer, ForeignKey('order_status.id')),
         Column('payment_status', Integer, ForeignKey('payement_status.id'))
-        )
-
+        )   
+    
     # Creat all tables
-    Base.metadata.create_all(engine)
-    # Session = sessionmaker(bind=engine)
-    # session = Session()
-# python setup.py
-# Setup in progress. Please wait.
-# This database din't exist. Creation in process. Please wait.
-# Traceback (most recent call last):
-#   File "setup.py", line 30, in <module>
-#     createtables('ocpizza')
-#   File "/media/odin/RAGNAROCK_BACKUP/OCPizza/createtables.py", line 103, in createtables
-#     Base.metadata.create_all(engine)
-#   File "/home/odin/.pyenv/versions/3.7.0/lib/python3.7/site-packages/sqlalchemy/sql/schema.py", line 4286, in create_all
-#     bind._run_visitor(
-# AttributeError: 'Session' object has no attribute '_run_visitor'
+    metadata.create_all(engin)

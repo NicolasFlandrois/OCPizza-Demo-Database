@@ -58,3 +58,22 @@ def connect(name):
         session = Session()
 
         return session
+
+def engine(name):
+    """returns database's engine with: 'name variable' """
+    with open("config.json") as f:
+
+        config = json.load(f)
+
+        username = config["username"]
+        password = config["password"]
+        host = config["host"]
+        port = config["port"]
+
+        engine = create_engine(
+            f'mysql+pymysql://{username}:{password}@{host}/\
+{name}?host={host}?port={port}',
+            echo=False, encoding='utf8', pool_recycle=60000,
+            pool_pre_ping=True)
+
+        return engine
