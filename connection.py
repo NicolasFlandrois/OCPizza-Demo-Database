@@ -56,5 +56,6 @@ def connect(name):
 
         Session = sessionmaker(bind=engine)
         session = Session()
+        # session._run_visitor = {}
 
         return session
