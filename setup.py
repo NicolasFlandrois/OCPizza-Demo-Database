@@ -37,7 +37,7 @@ if checkdb('ocpizza') == True:
     finishTime = datetime.now()
     timeDetla = finishTime-startTime
 
-    print("Setup is finished. Your database is available now.")
+    print("Setup is finished. Your database is now available.")
     print("The process was completed in : " + str(
         timeDetla.total_seconds()) + "s.")
 
