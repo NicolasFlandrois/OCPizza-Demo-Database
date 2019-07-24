@@ -128,7 +128,7 @@
 			"storunit":"kg",
 			"storqty_delivunit":2,
 			"produnit":"càs",
-			"prodqty_storunit":67},
+			"prodqty_storunit":67}
 	],
 
 	"recipes":[
@@ -277,8 +277,8 @@
 		"vat":0.07,
 		"total_price_ht":14,
 		"order_status":"commandée, en attente de préparation",
-		"pay_status":"paiement à la livraison, espèces",
-	},
+		"pay_status":"paiement à la livraison, espèces"
+		},
 		{
 		"datetime":[2019, 7, 16, 13, 39, 50],
 		"client_name":"Suckerborg",
@@ -286,8 +286,8 @@
 		"vat":0.07,
 		"total_price_ht":9.99,
 		"order_status":"en cours de livraison",
-		"pay_status":"paiement à la livraison, carte bancaire",
-	},
+		"pay_status":"paiement à la livraison, carte bancaire"
+		},
 		{
 		"datetime":[2019, 7, 16, 12, 39, 56],
 		"client_name":"dupond",
@@ -295,8 +295,8 @@
 		"vat":0.07,
 		"total_price_ht":12.50,
 		"order_status":"livrée",
-		"pay_status":"payé à livraison",
-	},
+		"pay_status":"payé à livraison"
+		},
 		{
 		"datetime":[2019, 7, 16, 13, 40, 56],
 		"client_name":"champolion",
@@ -304,6 +304,7 @@
 		"vat":0.07,
 		"total_price_ht":13.99,
 		"order_status":"en préparation",
-		"pay_status":"payé en ligne",
-	},
-]
+		"pay_status":"payé en ligne"
+		}
+	]
+}

@@ -17,14 +17,10 @@ session = connect('ocpizza')
 
 # 1/Read json raw data file
 with open("data.json") as f:
-    data = json.loads(f)
+    data = json.load(f)
     print(data)
 
 # Raised error:
-# raise TypeError(f'the JSON object must be str, bytes or bytearray, '
-# TypeError: the JSON object must be str, bytes or bytearray, not TextIOWrapper
-# >> You want json.load for loading a file.  json.loads is for loading from a string.
-
 
 # 2/store in memory relevent data?
 
