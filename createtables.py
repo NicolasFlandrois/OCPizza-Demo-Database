@@ -27,13 +27,13 @@ def createtables(name):
     payement_status = Table(
         'payement_status', metadata,
         Column('id', Integer, primary_key=True),
-        Column('status', String(20))
+        Column('status', String(50))
         )
 
     order_status = Table(
         'order_status', metadata,
         Column('id', Integer, primary_key=True),
-        Column('status', String(20))
+        Column('status', String(50))
         )
 
     client = Table(

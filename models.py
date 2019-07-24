@@ -22,7 +22,7 @@ class Pizza(Base):
     vat = Column(Integer, ForeignKey('vat.id'))
     
 
-class Ingredients(Base):
+class Ingredient(Base):
     """docstring for Ingredient"""
     __tablename__ = "ingredient"
     id = Column(Integer, primary_key=True)
@@ -59,7 +59,7 @@ class Payement_status(Base):
     """docstring for PayementStatus"""
     __tablename__ = "payement_status"
     id = Column(Integer, primary_key=True)
-    status = Column(String(20))
+    status = Column(String(50))
 
 class Order_status(Base):
     """docstring for Order Status"""
@@ -69,7 +69,7 @@ class Order_status(Base):
 
 class Client(Base):
     """docstring for Client"""
-    __tablename__ = "Client"
+    __tablename__ = "client"
     id = Column(Integer, primary_key=True)
     family_name = Column(String(20), nullable=False)
     first_name = Column(String(20), nullable=False)
@@ -83,13 +83,13 @@ class Client(Base):
 
 class Vat(Base):
     """docstring for Vat"""
-    __tablename__ = "Vat"
+    __tablename__ = "vat"
     id = Column(Integer, primary_key=True)
     rate = Column(Float(decimal_return_scale=4))
 
 class Orders(Base):
     """docstring for Orders"""
-    __tablename__ = "Orders"
+    __tablename__ = "orders"
     id = Column(Integer, primary_key=True)
     date = Column(DateTime)
     client = Column(Integer, ForeignKey('client.id'))
