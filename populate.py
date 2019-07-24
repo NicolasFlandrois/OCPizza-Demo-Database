@@ -17,13 +17,13 @@ session = connect('ocpizza')
 
 # 1/Read json raw data file
 with open("data.json") as f:
-    data = json.load(f)
+    data = json.loads(f)
     print(data)
 
-#     Raised error:
-#     File "/home/odin/.pyenv/versions/3.7.0/lib/python3.7/json/decoder.py", line 355, in raw_decode
-#     raise JSONDecodeError("Expecting value", s, err.value) from None
-# json.decoder.JSONDecodeError: Expecting value: line 132 column 2 (char 3198)
+# Raised error:
+# raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+# TypeError: the JSON object must be str, bytes or bytearray, not TextIOWrapper
+# >> You want json.load for loading a file.  json.loads is for loading from a string.
 
 
 # 2/store in memory relevent data?
