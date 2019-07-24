@@ -18,9 +18,7 @@ session = connect('ocpizza')
 # 1/Read json raw data file
 with open("data.json") as f:
     data = json.load(f)
-    print(data)
-
-# Raised error:
+    print(data)  # Ok this works!
 
 # 2/store in memory relevent data?
 
