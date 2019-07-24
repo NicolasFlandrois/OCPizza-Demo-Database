@@ -13,13 +13,18 @@ from sqlalchemy import Column, Integer, Float, String, ForeignKey
 from models import Pizza, Ingredients, Recipe, Stock, Payement_status, Order_status, Client, Vat, Orders
 
 # Base = declarative_base() # Normalement ne sera pas utiliser
-# session = connect('ocpizza')
+session = connect('ocpizza')
 
 # 1/Read json raw data file
 with open("data.json") as f:
-    print(f)
     data = json.load(f)
     print(data)
+
+#     Raised error:
+#     File "/home/odin/.pyenv/versions/3.7.0/lib/python3.7/json/decoder.py", line 355, in raw_decode
+#     raise JSONDecodeError("Expecting value", s, err.value) from None
+# json.decoder.JSONDecodeError: Expecting value: line 132 column 2 (char 3198)
+
 
 # 2/store in memory relevent data?
 
