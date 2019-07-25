@@ -75,11 +75,13 @@ class Client(Base):
     first_name = Column(String(20), nullable=False)
     email = Column(String(50), nullable=False)
     phone = Column(String(10), nullable=False)
-    address1 = Column(String(100), nullable=False)
-    address2 = Column(String(100))
-    address3 = Column(String(100))
-    invoice_address = Column(String(100), nullable=False)
 
+class Address(Base):
+    """docstring for Adresses"""
+    __tablename__ = "address"
+    id = Column(Integer, primary_key=True)
+    client = Column(Integer, ForeignKey('client.id'), nullable=False)
+    address = Column(String(500), nullable=False)
 
 class Vat(Base):
     """docstring for Vat"""
@@ -87,12 +89,18 @@ class Vat(Base):
     id = Column(Integer, primary_key=True)
     rate = Column(Float(decimal_return_scale=4))
 
-class Orders(Base):
+class Order(Base):
     """docstring for Orders"""
-    __tablename__ = "orders"
+    __tablename__ = "order"
     id = Column(Integer, primary_key=True)
     date = Column(DateTime)
-    client = Column(Integer, ForeignKey('client.id'))
-    pizza = Column(Integer, ForeignKey('pizza.id'))  # What if ordered for more than 1 product?
-    order_status = Column(Integer, ForeignKey('order_status.id'))
-    payment_status = Column(Integer, ForeignKey('payement_status.id'))
+    client = Column(Integer, ForeignKey('client.id'), nullable=False)
+    order_status = Column(Integer, ForeignKey('order_status.id'), nullable=False)
+    payment_status = Column(Integer, ForeignKey('payement_status.id'), nullable=False)
+
+class Pizza_ordered(Base):
+    """docstring for Pizza_ordered"""
+    __tablename__ = "pizza_ordered"
+    id = Column(Integer, primary_key=True)
+    order = Column(Integer, ForeignKey('order.id'), nullable=False)
+    pizza = Column(Integer, ForeignKey('pizza.id'), nullable=False)
