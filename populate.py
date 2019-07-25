@@ -7,20 +7,19 @@
 import json
 from connection import connect
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, Float, String, ForeignKey
+from sqlalchemy import Column, Integer, Float, String, ForeignKey  # Do I actually use this line?
 # from sqlalchemy import Index
 # from sqlalchemy.orm import relationship, backref
 from models import Pizza, Ingredient, Recipe, Stock, Payement_status, Order_status
 from models import Client, Vat, Order, Pizza_ordered, Address
 
-# Base = declarative_base() # Normalement ne sera pas utiliser
+
+# def populate(dbname):
+#     """docstring for populate"""
 session = connect('ocpizza')
 
-# 1/Read json raw data file
 with open("data.json") as f:
     data = json.load(f)
-
-# 2/store in memory relevent parsed data?
 
 # for i in data['vat']:
 #     vat = Vat(rate = i)
