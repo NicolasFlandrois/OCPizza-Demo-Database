@@ -9,7 +9,7 @@
 	],
 
 	"ingredients":[
-		{"name":"pâte à Pizza",
+		{"name":"pâte à pizza",
 			"delivunit":"kg",
 			"storunit":"kg",
 			"storqty_delivunit":1,
@@ -153,7 +153,7 @@
 
 	"recipes":[
 		{"champipy":{
-			"pâte à Pizza":500,
+			"pâte à pizza":500,
 			"crême fraiche":2,
 			"mozzarella":100,
 			"champignon":70,
@@ -163,36 +163,36 @@
 			"origan":1
 	}},
 		{"peperony":{
-			"pâte à Pizza":500,
+			"pâte à pizza":500,
 			"sauce tomate":3,
 			"mozzarella":100,
 			"saucisson peperoni":20
 	}},
 		{"napoly":{
-			"pâte à Pizza":500,
+			"pâte à pizza":500,
 			"sauce tomate":3,
-			"fillets Anchois":12,
+			"fillets anchois":12,
 			"capres":30,
 			"emental rapé":100,
 			"olives noires":12,
 			"origan":1
 	}},
 		{"margherita":{
-			"pâte à Pizza":500,
+			"pâte à pizza":500,
 			"sauce tomate":3,
 			"mozzarella":100,
 			"huile d'olive":1,
 			"basilic":1
 		}},
 		{"regina":{
-			"pâte à Pizza":500,
+			"pâte à pizza":500,
 			"sauce tomate":3,
 			"mozzarella":100,
 			"jambon":100,
 			"champignon":50
 		}},
 		{"pouloulou":{
-			"pâte à Pizza":500,
+			"pâte à pizza":500,
 			"sauce tomate":3,
 			"mozzarella":100,
 			"poulet":120,
@@ -203,7 +203,7 @@
 	],
 	
 	"stocks":[
-		{"name":"pâte à Pizza", "quantity":6},
+		{"name":"pâte à pizza", "quantity":6},
 		{"name":"crême fraiche", "quantity":10},
 		{"name":"mozzarella", "quantity":9},
 		{"name":"lardons", "quantity":8},
@@ -260,7 +260,7 @@
 			"first_name":"leon",
 			"email":"l.champolion@fakemail.com",
 			"phone":"0712345677",
-			"address1":"entreprise bidule, Tour montparnasse, 69007, smallville",
+			"address1":"entreprise bidule, tour montparnasse, 69007, smallville",
 			"address2":"",
 			"address3":"",
 			"invoice_address":"2 rue de la mairie, 38200, tarte ville"},
@@ -269,25 +269,25 @@
 			"email":"am-antoine@fakemail.com",
 			"phone":"0698765432",
 			"address1":"66 place de la bibliothèque, 69003, lyon",
-			"address2":"entreprise bidule, Tour montparnasse, 69007, smallville",
+			"address2":"entreprise bidule, tour montparnasse, 69007, smallville",
 			"address3":"",
 			"invoice_address":"66 place de la bibliothèque, 69003, lyon"},
 		{"family_name":"gates",
 			"first_name":"billy",
 			"email":"b.gates@boggus.com",
 			"phone":"0732658749",
-			"address1":"Mirrosoft HQ, penthouse, mirrosoft tower, 1 mirrosoft avenue, 38250 metropolis",
+			"address1":"mirrosoft hq, penthouse, mirrosoft tower, 1 mirrosoft avenue, 38250 metropolis",
 			"address2":"",
 			"address3":"",
-			"invoice_address":"Mirrosoft HQ, penthouse, microsoft tower, 1 mirrosoft avenue, 38250 metropolis"},
+			"invoice_address":"mirrosoft hq, penthouse, microsoft tower, 1 mirrosoft avenue, 38250 metropolis"},
 		{"family_name":"Suckerborg",
 			"first_name":"marcus aurelius",
 			"email":"ma.suck@fakebouque.com",
 			"phone":"0798678325",
-			"address1":"Allée des mimosas, 69003, Lyon",
-			"address2":"fakebouque tower, avenue de l'innovation, 69130, Ghotham City",
+			"address1":"allée des mimosas, 69003, Lyon",
+			"address2":"fakebouque tower, avenue de l'innovation, 69130, ghotham city",
 			"address3":"",
-			"invoice_address":"fakebouque tower, avenue de l'innovation, 69130, Ghotham City"}
+			"invoice_address":"fakebouque tower, avenue de l'innovation, 69130, ghotham city"}
 	],
 	"orders":[
 		{

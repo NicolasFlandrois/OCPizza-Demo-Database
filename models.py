@@ -18,7 +18,7 @@ class Pizza(Base):
     __tablename__ = "product"
     id = Column(Integer, primary_key=True)
     name = Column(String(50))
-    price_ht = Column(Float(4, decimal_return_scale=2))  # In local currency
+    price = Column(Float(4, decimal_return_scale=2))  # In local currency
     vat = Column(Integer, ForeignKey('vat.id'))
     
 

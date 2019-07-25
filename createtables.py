@@ -53,7 +53,7 @@ def createtables(name):
         'pizza', metadata,
         Column('id', Integer, primary_key=True),
         Column('name', String(50)),
-        Column('price_ht', Float(4, decimal_return_scale=2)),
+        Column('price', Float(4, decimal_return_scale=2)),
         Column('vat', Integer, ForeignKey('vat.id'))
         )
 
