@@ -92,7 +92,7 @@ for i in data['orders']:
     # Parse Data > filter by datetime
     # order.id
     # pizza.id > i['pizza_name'] == pizza.name
-    # same model as recipe
+    # same model as 'recipe'
     # session.add(pizza_ordered)
 
 session.commit()
