@@ -18,17 +18,8 @@ if checkdb('ocpizza') == True:
     session = connect('ocpizza')
 
     createtables('ocpizza')
+    # Function to populate the entire DB > HERE <
 
-    
-
-    # Then populate the DB
-    # 5/ Create a configured "Session" class
-    # Session = sessionmaker(bind=engine) # Create and factor this in Connect function
-    # 6/ Create a Session
-    # session = Session() # Create and factor this in Connect function
-
-    # 8/ Mesuring time to setup, and informing user, the database was created
-    # successfully.
     finishTime = datetime.now()
     timeDetla = finishTime-startTime
 
@@ -36,6 +27,5 @@ if checkdb('ocpizza') == True:
     print("The process was completed in : " + str(
         timeDetla.total_seconds()) + "s.")
 
-# If the database already exist, then inform the user about it.
 else:
     print("Your database already exists.")
