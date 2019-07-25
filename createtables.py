@@ -27,13 +27,13 @@ def createtables(name):
     payement_status = Table(
         'payement_status', metadata,
         Column('id', Integer, primary_key=True),
-        Column('status', String(20))
+        Column('status', String(50))
         )
 
     order_status = Table(
         'order_status', metadata,
         Column('id', Integer, primary_key=True),
-        Column('status', String(20))
+        Column('status', String(50))
         )
 
     client = Table(
@@ -43,17 +43,20 @@ def createtables(name):
         Column('first_name', String(20), nullable=False),
         Column('email', String(50), nullable=False),
         Column('phone', String(10), nullable=False),
-        Column('address1', String(100), nullable=False),
-        Column('address2', String(100)),
-        Column('address3', String(100)),
-        Column('invoice_address', String(100), nullable=False)
+        )
+
+    address = Table(
+        'address', metadata,
+        Column('id', Integer, primary_key=True),
+        Column('client', Integer, ForeignKey('client.id'), nullable=False),
+        Column('address', String(500), nullable=False)        
         )
 
     pizza = Table(
         'pizza', metadata,
         Column('id', Integer, primary_key=True),
         Column('name', String(50)),
-        Column('price_ht', Float(4, decimal_return_scale=2)),
+        Column('price', Float(4, decimal_return_scale=2)),
         Column('vat', Integer, ForeignKey('vat.id'))
         )
 
@@ -96,11 +99,17 @@ def createtables(name):
         'order', metadata,
         Column('id', Integer, primary_key=True),
         Column('date', DateTime),
-        Column('client', Integer, ForeignKey('client.id')),
-        Column('pizza', Integer, ForeignKey('pizza.id')),  # What if ordered for more than 1 product?
-        Column('order_status', Integer, ForeignKey('order_status.id')),
-        Column('payment_status', Integer, ForeignKey('payement_status.id'))
-        )   
+        Column('client', Integer, ForeignKey('client.id'), nullable=False),
+        Column('order_status', Integer, ForeignKey('order_status.id'), nullable=False),
+        Column('payment_status', Integer, ForeignKey('payement_status.id'), nullable=False)
+        )
+
+    pizza_ordered = Table(
+        'pizza_ordered', metadata,
+        Column('id', Integer, primary_key=True),
+        Column('order', Integer, ForeignKey('order.id'), nullable=False),
+        Column('pizza', Integer, ForeignKey('pizza.id'), nullable=False)
+        )
     
     # Creat all tables
     metadata.create_all(engin)

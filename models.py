@@ -15,14 +15,14 @@ Base = declarative_base()
 
 class Pizza(Base):
     """docstring for Pizza"""
-    __tablename__ = "product"
+    __tablename__ = "pizza"
     id = Column(Integer, primary_key=True)
     name = Column(String(50))
-    price_ht = Column(Float(4, decimal_return_scale=2))  # In local currency
+    price = Column(Float(4, decimal_return_scale=2))  # In local currency
     vat = Column(Integer, ForeignKey('vat.id'))
     
 
-class Ingredients(Base):
+class Ingredient(Base):
     """docstring for Ingredient"""
     __tablename__ = "ingredient"
     id = Column(Integer, primary_key=True)
@@ -59,7 +59,7 @@ class Payement_status(Base):
     """docstring for PayementStatus"""
     __tablename__ = "payement_status"
     id = Column(Integer, primary_key=True)
-    status = Column(String(20))
+    status = Column(String(50))
 
 class Order_status(Base):
     """docstring for Order Status"""
@@ -69,30 +69,38 @@ class Order_status(Base):
 
 class Client(Base):
     """docstring for Client"""
-    __tablename__ = "Client"
+    __tablename__ = "client"
     id = Column(Integer, primary_key=True)
     family_name = Column(String(20), nullable=False)
     first_name = Column(String(20), nullable=False)
     email = Column(String(50), nullable=False)
     phone = Column(String(10), nullable=False)
-    address1 = Column(String(100), nullable=False)
-    address2 = Column(String(100))
-    address3 = Column(String(100))
-    invoice_address = Column(String(100), nullable=False)
 
+class Address(Base):
+    """docstring for Adresses"""
+    __tablename__ = "address"
+    id = Column(Integer, primary_key=True)
+    client = Column(Integer, ForeignKey('client.id'), nullable=False)
+    address = Column(String(500), nullable=False)
 
 class Vat(Base):
     """docstring for Vat"""
-    __tablename__ = "Vat"
+    __tablename__ = "vat"
     id = Column(Integer, primary_key=True)
     rate = Column(Float(decimal_return_scale=4))
 
-class Orders(Base):
+class Order(Base):
     """docstring for Orders"""
-    __tablename__ = "Orders"
+    __tablename__ = "order"
     id = Column(Integer, primary_key=True)
     date = Column(DateTime)
-    client = Column(Integer, ForeignKey('client.id'))
-    pizza = Column(Integer, ForeignKey('pizza.id'))  # What if ordered for more than 1 product?
-    order_status = Column(Integer, ForeignKey('order_status.id'))
-    payment_status = Column(Integer, ForeignKey('payement_status.id'))
+    client = Column(Integer, ForeignKey('client.id'), nullable=False)
+    order_status = Column(Integer, ForeignKey('order_status.id'), nullable=False)
+    payment_status = Column(Integer, ForeignKey('payement_status.id'), nullable=False)
+
+class Pizza_ordered(Base):
+    """docstring for Pizza_ordered"""
+    __tablename__ = "pizza_ordered"
+    id = Column(Integer, primary_key=True)
+    order = Column(Integer, ForeignKey('order.id'), nullable=False)
+    pizza = Column(Integer, ForeignKey('pizza.id'), nullable=False)

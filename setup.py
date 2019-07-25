@@ -3,16 +3,11 @@
 # Date: Thu 11 Jul 2019 16:06:15 CEST
 # Author: Nicolas Flandrois
 
-import json
 
 from sqlalchemy.orm import sessionmaker, query
-
 from connection import connect, createdb, checkdb
 from datetime import datetime
-
-
 from createtables import createtables
-
 
 
 startTime = datetime.now()
