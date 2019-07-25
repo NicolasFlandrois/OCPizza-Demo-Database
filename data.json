@@ -152,54 +152,60 @@
 	],
 
 	"recipes":[
-		{"champipy":{
-			"pâte à pizza":500,
-			"crême fraiche":2,
-			"mozzarella":100,
-			"champignon":70,
-			"lardons":100,
-			"oignons":20,
-			"jambon":100,
-			"origan":1
-	}},
-		{"peperony":{
-			"pâte à pizza":500,
-			"sauce tomate":3,
-			"mozzarella":100,
-			"saucisson peperoni":20
-	}},
-		{"napoly":{
-			"pâte à pizza":500,
-			"sauce tomate":3,
-			"fillets anchois":12,
-			"capres":30,
-			"emental rapé":100,
-			"olives noires":12,
-			"origan":1
-	}},
-		{"margherita":{
-			"pâte à pizza":500,
-			"sauce tomate":3,
-			"mozzarella":100,
-			"huile d'olive":1,
-			"basilic":1
-		}},
-		{"regina":{
-			"pâte à pizza":500,
-			"sauce tomate":3,
-			"mozzarella":100,
-			"jambon":100,
-			"champignon":50
-		}},
-		{"pouloulou":{
-			"pâte à pizza":500,
-			"sauce tomate":3,
-			"mozzarella":100,
-			"poulet":120,
-			"ananas":80,
-			"coriandre":1,
-			"parmesan":50
-		}}
+		{"name":"champipy", "recipe":[
+			["pâte à pizza", 500],
+			["crême fraiche", 2],
+			["mozzarella", 100],
+			["champignon", 70],
+			["lardons", 100],
+			["oignons", 20],
+			["jambon", 100],
+			["origan", 1]
+			]
+		},
+		{"name":"peperony", "recipe":[
+			["pâte à pizza", 500],
+			["sauce tomate", 3],
+			["mozzarella", 100],
+			["saucisson peperoni", 20]
+			]
+		},
+		{"name":"napoly", "recipe":[
+			["pâte à pizza", 500],
+			["sauce tomate", 3],
+			["fillets anchois", 12],
+			["capres", 30],
+			["emental rapé", 100],
+			["olives noires", 12],
+			["origan", 1]
+			]
+		},
+		{"name":"margherita", "recipe":[
+			["pâte à pizza", 500],
+			["sauce tomate", 3],
+			["mozzarella", 100],
+			["huile d'olive", 1],
+			["basilic", 1]
+			]
+		},
+		{"name":"regina", "recipe":[
+			["pâte à pizza", 500],
+			["sauce tomate", 3],
+			["mozzarella", 100],
+			["jambon", 100],
+			["champignon", 50]
+			]
+		},
+		{"name":"pouloulou", "recipe":[
+			["pâte à pizza", 500],
+			["sauce tomate", 3],
+			["mozzarella", 100],
+			["poulet", 120],
+			["ananas", 80],
+			["coriandre", 1],
+			["parmesan", 50]
+			]
+		}
 	],
 	
 	"stocks":[

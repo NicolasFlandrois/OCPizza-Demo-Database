@@ -52,6 +52,19 @@ with open("data.json") as f:
 #             pizza = Pizza(name = i['name'], price = i['price'], vat = n[0])
 #             session.add(pizza)  # Ok Works
 
+# for i in data['recipes']:
+#     name = [(n.id, n.name) for n in session.query(Pizza).all()]
+#     for n in name:
+#         if n[1] == i['name']:
+#             for rep in i['recipe']:
+#                 ingr = [(n.id, n.name) for n in session.query(Ingredient).all()]
+#                 for ningr in ingr:
+#                     if ningr[1] == rep[0]:
+#                         recipe = Recipe(pizza = n[0], ingredient = ningr[0], quantity = rep[1])
+#                         session.add(recipe)  # Ok Works
+
+
+
 session.commit()
 
 # 3/attach relevent data to a class from models
