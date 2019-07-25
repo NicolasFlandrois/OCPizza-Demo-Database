@@ -15,7 +15,7 @@ Base = declarative_base()
 
 class Pizza(Base):
     """docstring for Pizza"""
-    __tablename__ = "product"
+    __tablename__ = "pizza"
     id = Column(Integer, primary_key=True)
     name = Column(String(50))
     price = Column(Float(4, decimal_return_scale=2))  # In local currency

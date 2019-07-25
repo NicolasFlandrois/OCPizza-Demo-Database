@@ -45,13 +45,14 @@ with open("data.json") as f:
 #         address2 = i['address2'], address3 = i['address3'], invoice_address = i['invoice_address'])
 #     session.add(client)  # Ok Works
 
-for i in data['pizzas']:
-    vat = session.query(Vat.id).filter(Vat.rate == i['vat']).first()
-    print(vat)
-#     Pizza(name = i['name'], price = i['price'], vat = vat_id[0])
-#     session.add(pizza)
+# for i in data['pizzas']:
+#     vat = [(n.id, n.rate) for n in session.query(Vat).all()]
+#     for n in vat:
+#         if n[1] == i['vat']:
+#             pizza = Pizza(name = i['name'], price = i['price'], vat = n[0])
+#             session.add(pizza)  # Ok Works
 
-# session.commit()
+session.commit()
 
 # 3/attach relevent data to a class from models
 # cf: http://www.lizsander.com/programming/2015/09/08/SQLalchemy-part-2.html
