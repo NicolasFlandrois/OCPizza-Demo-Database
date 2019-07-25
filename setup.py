@@ -8,6 +8,7 @@ from sqlalchemy.orm import sessionmaker, query
 from connection import connect, createdb, checkdb
 from datetime import datetime
 from createtables import createtables
+# from populate import populate
 
 
 startTime = datetime.now()
@@ -23,7 +24,7 @@ if checkdb('ocpizza') == True:
     finishTime = datetime.now()
     timeDetla = finishTime-startTime
 
-    print("Setup is finished. Your database is available now.")
+    print("Setup is finished. Your database is now available.")
     print("The process was completed in : " + str(
         timeDetla.total_seconds()) + "s.")
 
