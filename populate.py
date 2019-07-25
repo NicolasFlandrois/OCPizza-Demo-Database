@@ -6,8 +6,8 @@
 
 import json
 from connection import connect
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, Float, String, ForeignKey  # Do I actually use this line?
+# from sqlalchemy.ext.declarative import declarative_base
+# from sqlalchemy import Column, Integer, Float, String, ForeignKey  # Do I actually use this line?
 # from sqlalchemy import Index
 # from sqlalchemy.orm import relationship, backref
 from models import Pizza, Ingredient, Recipe, Stock, Payement_status, Order_status
