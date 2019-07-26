@@ -13,13 +13,15 @@ from populate import populate
 
 startTime = datetime.now()
 print("Setup in progress. Please wait.")
+dbname = 'ocpizza'
+rawdata = 'data.json'
 
-if checkdb('ocpizza') == True:
-    createdb('ocpizza')
-    session = connect('ocpizza')
+if checkdb(dbname) == True:
+    createdb(dbname)
+    session = connect(dbname)
 
-    createtables('ocpizza')
-    populate('ocpizza', 'data.json')
+    createtables(dbname)
+    populate(dbname, rawdata)
 
     finishTime = datetime.now()
     timeDetla = finishTime-startTime
