@@ -5,6 +5,7 @@
 
 
 import json
+import datetime
 from connection import connect
 # from sqlalchemy.ext.declarative import declarative_base
 # from sqlalchemy import Column, Integer, Float, String, ForeignKey  # Do I actually use this line?
@@ -77,14 +78,25 @@ with open("data.json") as f:
 #             stock = Stock(ingredient = n[0], quantity = i['quantity'])
 #             session.add(stock)  # Ok Works
 
-for i in data['orders']:
-    print(i)
-    # Parse Data
-    # Client.id > i['client_name'] == client.name
-    # Order_status.id > i['order_status'] = order_status.status
-    # Payment_status.id > i['pay_status'] = payement_status.status
-    # Datetime > use datetime.date(yr, mth, day, hr, min, sec) & i['datetime']
-    # session.add(order)
+# for i in data['orders']:
+#     name = [(n.id, n.family_name) for n in session.query(Client).all()]
+#     for n in name:
+#         if n[1] == i['client_name']:
+#             client_name = n[0]
+#             o_status = [(n.id, n.status) for n in session.query(Order_status).all()]
+#             for o in o_status:
+#                 if o[1] == i['order_status']:
+#                     order_stat = o[0]
+#                     p_status = [(n.id, n.status) for n in session.query(Payement_status).all()]
+#                     for p in p_status:
+#                         if p[1] == i['pay_status']:
+#                             pay_stat = p[0]
+#                             dstring = i['datetime']
+#                             dt = datetime.datetime.strptime(dstring, '%Y, %m, %d, %H, %M, %S')
+
+#                             order = Order(date = dt, client = client_name, order_status = order_stat,
+#                                     payment_status = pay_stat)
+#                             session.add(order)  # Ok Works
     
 # for i in data['orders']:
 #     print(i)

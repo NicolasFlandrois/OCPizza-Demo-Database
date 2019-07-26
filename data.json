@@ -289,7 +289,7 @@
 	],
 	"orders":[
 		{
-		"datetime":[2019, 7, 16, 13, 39, 56],
+		"datetime":"2019, 07, 16, 13, 39, 56",
 		"client_name":"gates",
 		"pizza_name":"pouloulou",
 		"vat":0.07,
@@ -298,7 +298,7 @@
 		"pay_status":"paiement à la livraison, espèces"
 		},
 		{
-		"datetime":[2019, 7, 16, 13, 39, 50],
+		"datetime":"2019, 07, 16, 13, 39, 50",
 		"client_name":"Suckerborg",
 		"pizza_name":"regina",
 		"vat":0.07,
@@ -307,7 +307,7 @@
 		"pay_status":"paiement à la livraison, carte bancaire"
 		},
 		{
-		"datetime":[2019, 7, 16, 12, 39, 56],
+		"datetime":"2019, 07, 16, 12, 39, 56",
 		"client_name":"dupond",
 		"pizza_name":"peperony",
 		"vat":0.07,
@@ -316,7 +316,7 @@
 		"pay_status":"payé à livraison"
 		},
 		{
-		"datetime":[2019, 7, 16, 13, 40, 56],
+		"datetime":"2019, 07, 16, 13, 40, 56",
 		"client_name":"champolion",
 		"pizza_name":"champipy",
 		"vat":0.07,

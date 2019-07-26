@@ -4,8 +4,7 @@
 # Author: Nicolas Flandrois
 
 from sqlalchemy import MetaData
-from sqlalchemy import Column, Integer, String, Boolean, Table, ForeignKey, Float
-from sqlalchemy.types import DateTime
+from sqlalchemy import Column, Integer, String, Boolean, Table, ForeignKey, Float, DateTime
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -95,8 +94,8 @@ def createtables(name):
         Column('quantity', Integer)
         )
 
-    order = Table(
-        'order', metadata,
+    order_cd = Table(
+        'order_cd', metadata,
         Column('id', Integer, primary_key=True),
         Column('date', DateTime),
         Column('client', Integer, ForeignKey('client.id'), nullable=False),
@@ -107,7 +106,7 @@ def createtables(name):
     pizza_ordered = Table(
         'pizza_ordered', metadata,
         Column('id', Integer, primary_key=True),
-        Column('order', Integer, ForeignKey('order.id'), nullable=False),
+        Column('order_cd', Integer, ForeignKey('order_cd.id'), nullable=False),
         Column('pizza', Integer, ForeignKey('pizza.id'), nullable=False)
         )
     
