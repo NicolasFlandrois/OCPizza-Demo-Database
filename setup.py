@@ -8,7 +8,7 @@ from sqlalchemy.orm import sessionmaker, query
 from connection import connect, createdb, checkdb
 from datetime import datetime
 from createtables import createtables
-# from populate import populate
+from populate import populate
 
 
 startTime = datetime.now()
@@ -19,7 +19,7 @@ if checkdb('ocpizza') == True:
     session = connect('ocpizza')
 
     createtables('ocpizza')
-    # Function to populate the entire DB > HERE <
+    populate('ocpizza', 'data.json')
 
     finishTime = datetime.now()
     timeDetla = finishTime-startTime
