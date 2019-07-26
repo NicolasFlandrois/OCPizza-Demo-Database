@@ -3,9 +3,8 @@
 # Date: Thu 11 Jul 2019 16:05:53 CEST
 # Author: Nicolas Flandrois
 
-from sqlalchemy import Column, Integer, Float, String, ForeignKey
+from sqlalchemy import Column, Integer, Float, String, ForeignKey, DateTime, Boolean
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.types import DateTime
 from connection import connect
 
 session = connect('ocpizza')
@@ -82,6 +81,7 @@ class Address(Base):
     id = Column(Integer, primary_key=True)
     client = Column(Integer, ForeignKey('client.id'), nullable=False)
     address = Column(String(500), nullable=False)
+    invoice = Column(Boolean, nullable=False)
 
 class Vat(Base):
     """docstring for Vat"""
@@ -91,9 +91,9 @@ class Vat(Base):
 
 class Order(Base):
     """docstring for Orders"""
-    __tablename__ = "order"
+    __tablename__ = "order_cd"
     id = Column(Integer, primary_key=True)
-    date = Column(DateTime)
+    date = Column(DateTime, nullable=False)
     client = Column(Integer, ForeignKey('client.id'), nullable=False)
     order_status = Column(Integer, ForeignKey('order_status.id'), nullable=False)
     payment_status = Column(Integer, ForeignKey('payement_status.id'), nullable=False)
@@ -102,5 +102,5 @@ class Pizza_ordered(Base):
     """docstring for Pizza_ordered"""
     __tablename__ = "pizza_ordered"
     id = Column(Integer, primary_key=True)
-    order = Column(Integer, ForeignKey('order.id'), nullable=False)
+    order_cd = Column(Integer, ForeignKey('order_cd.id'), nullable=False)
     pizza = Column(Integer, ForeignKey('pizza.id'), nullable=False)

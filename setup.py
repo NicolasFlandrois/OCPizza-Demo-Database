@@ -8,18 +8,20 @@ from sqlalchemy.orm import sessionmaker, query
 from connection import connect, createdb, checkdb
 from datetime import datetime
 from createtables import createtables
-# from populate import populate
+from populate import populate
 
 
 startTime = datetime.now()
 print("Setup in progress. Please wait.")
+dbname = 'ocpizza'
+rawdata = 'data.json'
 
-if checkdb('ocpizza') == True:
-    createdb('ocpizza')
-    session = connect('ocpizza')
+if checkdb(dbname) == True:
+    createdb(dbname)
+    session = connect(dbname)
 
-    createtables('ocpizza')
-    # Function to populate the entire DB > HERE <
+    createtables(dbname)
+    populate(dbname, rawdata)
 
     finishTime = datetime.now()
     timeDetla = finishTime-startTime

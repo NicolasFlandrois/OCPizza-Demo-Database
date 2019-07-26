@@ -289,36 +289,36 @@
 	],
 	"orders":[
 		{
-		"datetime":[2019, 7, 16, 13, 39, 56],
+		"datetime":"2019, 07, 16, 13, 39, 56",
 		"client_name":"gates",
-		"pizza_name":"pouloulou",
+		"pizza_name":["peperony", "pouloulou", "regina"],
 		"vat":0.07,
 		"total_price_ht":14,
 		"order_status":"commandée, en attente de préparation",
 		"pay_status":"paiement à la livraison, espèces"
 		},
 		{
-		"datetime":[2019, 7, 16, 13, 39, 50],
+		"datetime":"2019, 07, 16, 13, 39, 50",
 		"client_name":"Suckerborg",
-		"pizza_name":"regina",
+		"pizza_name":["regina"],
 		"vat":0.07,
 		"total_price_ht":9.99,
 		"order_status":"en cours de livraison",
 		"pay_status":"paiement à la livraison, carte bancaire"
 		},
 		{
-		"datetime":[2019, 7, 16, 12, 39, 56],
+		"datetime":"2019, 07, 16, 12, 39, 56",
 		"client_name":"dupond",
-		"pizza_name":"peperony",
+		"pizza_name":["peperony"],
 		"vat":0.07,
 		"total_price_ht":12.50,
 		"order_status":"livrée",
 		"pay_status":"payé à livraison"
 		},
 		{
-		"datetime":[2019, 7, 16, 13, 40, 56],
+		"datetime":"2019, 07, 16, 13, 40, 56",
 		"client_name":"champolion",
-		"pizza_name":"champipy",
+		"pizza_name":["peperony", "champipy"],
 		"vat":0.07,
 		"total_price_ht":13.99,
 		"order_status":"en préparation",
