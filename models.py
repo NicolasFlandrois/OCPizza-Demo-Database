@@ -3,7 +3,7 @@
 # Date: Thu 11 Jul 2019 16:05:53 CEST
 # Author: Nicolas Flandrois
 
-from sqlalchemy import Column, Integer, Float, String, ForeignKey, DateTime
+from sqlalchemy import Column, Integer, Float, String, ForeignKey, DateTime, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from connection import connect
 
@@ -81,6 +81,7 @@ class Address(Base):
     id = Column(Integer, primary_key=True)
     client = Column(Integer, ForeignKey('client.id'), nullable=False)
     address = Column(String(500), nullable=False)
+    invoice = Column(Boolean, nullable=False)
 
 class Vat(Base):
     """docstring for Vat"""

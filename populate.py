@@ -45,9 +45,16 @@ def populate(dbname, jsondata):
         name = [(n.id, n.family_name) for n in session.query(Client).all()]
         for n in name:
             if n[1] == i['family_name']:
+                count = 0
                 for address in i['address']:
-                    addresses = Address(client = n[0], address = address)
-                    session.add(addresses)
+                    if count == 0:
+                        addresses = Address(client = n[0], address = address, invoice = True)
+                        session.add(addresses)
+                        count += 1
+                    else:
+                        addresses = Address(client = n[0], address = address, invoice = False)
+                        session.add(addresses)
+                        count += 1
 
     for i in data['pizzas']:
         vat = [(n.id, n.rate) for n in session.query(Vat).all()]

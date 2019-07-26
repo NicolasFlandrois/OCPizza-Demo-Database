@@ -48,7 +48,8 @@ def createtables(name):
         'address', metadata,
         Column('id', Integer, primary_key=True),
         Column('client', Integer, ForeignKey('client.id'), nullable=False),
-        Column('address', String(500), nullable=False)        
+        Column('address', String(500), nullable=False),
+        Column('invoice', Boolean, nullable=False)
         )
 
     pizza = Table(
