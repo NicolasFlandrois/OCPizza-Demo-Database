@@ -54,9 +54,9 @@ class Stock(Base):
     ingredient = Column(Integer, ForeignKey('ingredient.id'), nullable=False)
     quantity = Column(Integer)
 
-class Payement_status(Base):
+class Payment_status(Base):
     """docstring for PayementStatus"""
-    __tablename__ = "payement_status"
+    __tablename__ = "payment_status"
     id = Column(Integer, primary_key=True)
     status = Column(String(50))
 

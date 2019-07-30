@@ -7,7 +7,7 @@
 import json
 import datetime
 from connection import connect
-from models import Pizza, Ingredient, Recipe, Stock, Payement_status, Order_status
+from models import Pizza, Ingredient, Recipe, Stock, Payment_status, Order_status
 from models import Client, Vat, Order, Pizza_ordered, Address
 
 
@@ -23,7 +23,7 @@ def populate(dbname, jsondata):
         session.add(vat)
 
     for i in data['pay_status']:
-        p_status = Payement_status(status = i)
+        p_status = Payment_status(status = i)
         session.add(p_status)
 
     for i in data['order_status']:
@@ -88,7 +88,7 @@ def populate(dbname, jsondata):
                 o_status = [(n.id, n.status) for n in session.query(Order_status).all()]
                 for o in o_status:
                     if o[1] == i['order_status']:
-                        p_status = [(n.id, n.status) for n in session.query(Payement_status).all()]
+                        p_status = [(n.id, n.status) for n in session.query(Payment_status).all()]
                         for p in p_status:
                             if p[1] == i['pay_status']:
                                 dstring = i['datetime']

@@ -23,8 +23,8 @@ def createtables(name):
         Column('rate', Float(decimal_return_scale=4))
         )
 
-    payement_status = Table(
-        'payement_status', metadata,
+    payment_status = Table(
+        'payment_status', metadata,
         Column('id', Integer, primary_key=True),
         Column('status', String(50))
         )
