@@ -55,7 +55,7 @@ class Stock(Base):
     quantity = Column(Integer)
 
 class Payment_status(Base):
-    """docstring for PayementStatus"""
+    """docstring for PaymentStatus"""
     __tablename__ = "payment_status"
     id = Column(Integer, primary_key=True)
     status = Column(String(50))
@@ -96,7 +96,7 @@ class Order(Base):
     date = Column(DateTime, nullable=False)
     client = Column(Integer, ForeignKey('client.id'), nullable=False)
     order_status = Column(Integer, ForeignKey('order_status.id'), nullable=False)
-    payment_status = Column(Integer, ForeignKey('payement_status.id'), nullable=False)
+    payment_status = Column(Integer, ForeignKey('Payment_status.id'), nullable=False)
 
 class Pizza_ordered(Base):
     """docstring for Pizza_ordered"""
