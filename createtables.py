@@ -101,7 +101,7 @@ def createtables(name):
         Column('date', DateTime),
         Column('client', Integer, ForeignKey('client.id'), nullable=False),
         Column('order_status', Integer, ForeignKey('order_status.id'), nullable=False),
-        Column('payment_status', Integer, ForeignKey('Payment_status.id'), nullable=False)
+        Column('payment_status', Integer, ForeignKey('payment_status.id'), nullable=False)
         )
 
     pizza_ordered = Table(

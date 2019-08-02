@@ -96,7 +96,7 @@ class Order(Base):
     date = Column(DateTime, nullable=False)
     client = Column(Integer, ForeignKey('client.id'), nullable=False)
     order_status = Column(Integer, ForeignKey('order_status.id'), nullable=False)
-    payment_status = Column(Integer, ForeignKey('Payment_status.id'), nullable=False)
+    payment_status = Column(Integer, ForeignKey('payment_status.id'), nullable=False)
 
 class Pizza_ordered(Base):
     """docstring for Pizza_ordered"""
