@@ -84,7 +84,7 @@ def createtables(name):
         Column('id', Integer, primary_key=True),
         Column('pizza', Integer, ForeignKey('pizza.id'), nullable=False),
         Column('ingredient', Integer, ForeignKey('ingredient.id'),
-            nullable=False),
+               nullable=False),
         Column('quantity', Float(4, decimal_return_scale=2))
         )
 
@@ -98,9 +98,9 @@ def createtables(name):
         'stock', metadata,
         Column('id', Integer, primary_key=True),
         Column('stock_loc', Integer, ForeignKey('restaurant.id'),
-            nullable=False),        
+               nullable=False),
         Column('ingredient', Integer, ForeignKey('ingredient.id'),
-            nullable=False),
+               nullable=False),
         Column('quantity', Integer)
         )
 
@@ -110,9 +110,9 @@ def createtables(name):
         Column('date', DateTime),
         Column('client', Integer, ForeignKey('client.id'), nullable=False),
         Column('order_status', Integer, ForeignKey('order_status.id'),
-            nullable=False),
+               nullable=False),
         Column('payment_status', Integer, ForeignKey('payment_status.id'),
-            nullable=False)
+               nullable=False)
         )
 
     pizza_ordered = Table(
@@ -121,6 +121,6 @@ def createtables(name):
         Column('order_cd', Integer, ForeignKey('order_cd.id'), nullable=False),
         Column('pizza', Integer, ForeignKey('pizza.id'), nullable=False)
         )
-    
+
     # Creat all tables
     metadata.create_all(engin)
