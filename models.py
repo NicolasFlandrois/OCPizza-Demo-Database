@@ -39,18 +39,25 @@ class Ingredient(Base):
     # Purchasing cost in Delivery units (in local currency)
     cost = Column(Float(4, decimal_return_scale=2))
 
-class Recipe(Base):
+class Recipe_ingredient(Base):
     """docstring for Recipe"""
-    __tablename__ = "recipe"
+    __tablename__ = "recipe_ingredient"
     id = Column(Integer, primary_key=True)
     pizza = Column(Integer, ForeignKey('pizza.id'), nullable=False)
     ingredient = Column(Integer, ForeignKey('ingredient.id'), nullable=False)
     quantity = Column(Float(4, decimal_return_scale=2))
 
+class Restaurant(Base):
+    """docstring for Restaurant"""
+    __tablename__ = "restaurant"
+    id = Column(Integer, primary_key=True)
+    name = Column(String(50))
+
 class Stock(Base):
     """docstring for Stock"""
     __tablename__ = "stock"
     id = Column(Integer, primary_key=True)
+    stock_loc =  Column(Integer, ForeignKey('restaurant.id'), nullable=False)
     ingredient = Column(Integer, ForeignKey('ingredient.id'), nullable=False)
     quantity = Column(Integer)
 

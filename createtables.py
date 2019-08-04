@@ -4,7 +4,8 @@
 # Author: Nicolas Flandrois
 
 from sqlalchemy import MetaData
-from sqlalchemy import Column, Integer, String, Boolean, Table, ForeignKey, Float, DateTime
+from sqlalchemy import Column, Integer, String, Boolean, Table, ForeignKey
+from sqlalchemy import Float, DateTime
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -78,8 +79,8 @@ def createtables(name):
         Column('cost', Float(4, decimal_return_scale=2))
         )
 
-    recipe = Table(
-        'recipe', metadata,
+    recipe_ingredient = Table(
+        'recipe_ingredient', metadata,
         Column('id', Integer, primary_key=True),
         Column('pizza', Integer, ForeignKey('pizza.id'), nullable=False),
         Column('ingredient', Integer, ForeignKey('ingredient.id'),
@@ -87,9 +88,17 @@ def createtables(name):
         Column('quantity', Float(4, decimal_return_scale=2))
         )
 
+    restaurant = Table(
+        'restaurant', metadata,
+        Column('id', Integer, primary_key=True),
+        Column('name', String(50))
+        )
+
     stock = Table(
         'stock', metadata,
         Column('id', Integer, primary_key=True),
+        Column('stock_loc', Integer, ForeignKey('restaurant.id'),
+            nullable=False),        
         Column('ingredient', Integer, ForeignKey('ingredient.id'),
             nullable=False),
         Column('quantity', Integer)
@@ -100,8 +109,10 @@ def createtables(name):
         Column('id', Integer, primary_key=True),
         Column('date', DateTime),
         Column('client', Integer, ForeignKey('client.id'), nullable=False),
-        Column('order_status', Integer, ForeignKey('order_status.id'), nullable=False),
-        Column('payment_status', Integer, ForeignKey('payment_status.id'), nullable=False)
+        Column('order_status', Integer, ForeignKey('order_status.id'),
+            nullable=False),
+        Column('payment_status', Integer, ForeignKey('payment_status.id'),
+            nullable=False)
         )
 
     pizza_ordered = Table(

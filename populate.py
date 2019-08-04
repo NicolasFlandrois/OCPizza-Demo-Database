@@ -7,8 +7,9 @@
 import json
 import datetime
 from connection import connect
-from models import Pizza, Ingredient, Recipe, Stock, Payment_status, Order_status
-from models import Client, Vat, Order, Pizza_ordered, Address
+from models import Pizza, Ingredient, Recipe_ingredient, Stock, Payment_status
+from models import Client, Vat, Order, Pizza_ordered, Address, Order_status
+from models import Restaurant
 
 
 def populate(dbname, jsondata):
@@ -33,12 +34,14 @@ def populate(dbname, jsondata):
     for i in data['ingredients']:
         ingredient = Ingredient(name = i['name'], delivunit = i['delivunit'],
             storunit = i['storunit'], storqty_delivunit = i['storqty_delivunit'],
-            produnit = i['produnit'], prodqty_storunit = i['prodqty_storunit'], cost = i['cost'])
+            produnit = i['produnit'], prodqty_storunit = i['prodqty_storunit'],
+            cost = i['cost'])
         session.add(ingredient)
 
     for i in data['clients']:
-        client = Client(family_name = i['family_name'], first_name = i['first_name'],
-            email = i['email'], phone = i['phone'])
+        client = Client(family_name = i['family_name'],
+            first_name = i['first_name'], email = i['email'],
+            phone = i['phone'])
         session.add(client)
 
     for i in data['clients']:
@@ -48,11 +51,13 @@ def populate(dbname, jsondata):
                 count = 0
                 for address in i['address']:
                     if count == 0:
-                        addresses = Address(client = n[0], address = address, invoice = True)
+                        addresses = Address(client = n[0], address = address,
+                            invoice = True)
                         session.add(addresses)
                         count += 1
                     else:
-                        addresses = Address(client = n[0], address = address, invoice = False)
+                        addresses = Address(client = n[0], address = address,
+                            invoice = False)
                         session.add(addresses)
                         count += 1
 
@@ -71,15 +76,24 @@ def populate(dbname, jsondata):
                     ingr = [(n.id, n.name) for n in session.query(Ingredient).all()]
                     for ningr in ingr:
                         if ningr[1] == rep[0]:
-                            recipe = Recipe(pizza = n[0], ingredient = ningr[0], quantity = rep[1])
+                            recipe = Recipe_ingredient(pizza = n[0],
+                                ingredient = ningr[0], quantity = rep[1])
                             session.add(recipe)
 
+    for i in data['restaurants']:
+        restaurant = Restaurant(name = i)
+        session.add(restaurant)
+
     for i in data['stocks']:
-        name = [(n.id, n.name) for n in session.query(Ingredient).all()]
-        for n in name:
-            if n[1] == i['name']:
-                stock = Stock(ingredient = n[0], quantity = i['quantity'])
-                session.add(stock)
+        restaurant = [(n.id, n.name) for n in session.query(Restaurant).all()]
+        for r in restaurant:
+            if r[1] == i['stock_loc']:
+                name = [(n.id, n.name) for n in session.query(Ingredient).all()]
+                for n in name:
+                    if n[1] == i['name']:
+                        stock = Stock(stock_loc = r[0], ingredient = n[0],
+                            quantity = i['quantity'])
+                        session.add(stock)
 
     for i in data['orders']:
         name = [(n.id, n.family_name) for n in session.query(Client).all()]
@@ -93,8 +107,8 @@ def populate(dbname, jsondata):
                             if p[1] == i['pay_status']:
                                 dstring = i['datetime']
                                 dt = datetime.datetime.strptime(dstring, '%Y, %m, %d, %H, %M, %S')
-                                order = Order(date = dt, client = n[0], order_status = o[0],
-                                        payment_status = p[0])
+                                order = Order(date = dt, client = n[0],
+                                    order_status = o[0], payment_status = p[0])
                                 session.add(order)
         
     for i in data['orders']:
@@ -107,7 +121,8 @@ def populate(dbname, jsondata):
                 for o_pizza in i['pizza_name']:
                     for p in pizza:
                         if p[1] == o_pizza:
-                            pizza_ordered = Pizza_ordered(order_cd = o[0], pizza = p[0])
+                            pizza_ordered = Pizza_ordered(order_cd = o[0],
+                                pizza = p[0])
                             session.add(pizza_ordered)
 
     session.commit()
