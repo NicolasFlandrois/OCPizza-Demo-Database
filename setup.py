@@ -16,7 +16,7 @@ print("Setup in progress. Please wait.")
 dbname = 'ocpizza'
 rawdata = 'data.json'
 
-if checkdb(dbname) == True:
+if checkdb(dbname) is True:
     createdb(dbname)
     session = connect(dbname)
 
