@@ -10,6 +10,7 @@ from sqlalchemy.orm import sessionmaker, query
 from sqlalchemy import create_engine, update
 from sqlalchemy_utils import create_database, database_exists
 
+
 def checkdb(name):
     with open("config.json") as f:
         config = json.load(f)
@@ -19,10 +20,12 @@ def checkdb(name):
         host = config["host"]
         port = config["port"]
 
-        if not database_exists(f'mysql+pymysql://{username}:{password}@{host}/{name}'):
+        if not database_exists(
+                f'mysql+pymysql://{username}:{password}@{host}/{name}'):
             return True
         else:
             return False
+
 
 def createdb(name):
     """create DB in mysql named: 'name variable' """
@@ -33,9 +36,10 @@ def createdb(name):
         password = config["password"]
         host = config["host"]
         port = config["port"]
-        
+
         create_database(f'mysql+pymysql://{username}:{password}@{host}/{name}')
         print("This database din't exist. Creation in process. Please wait.")
+
 
 def connect(name):
     """Connect Python to the MySQL database with: 'name variable' """
@@ -58,6 +62,7 @@ def connect(name):
         session = Session()
 
         return session
+
 
 def engine(name):
     """returns database's engine with: 'name variable' """
