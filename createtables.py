@@ -119,7 +119,8 @@ def createtables(name):
         'pizza_ordered', metadata,
         Column('id', Integer, primary_key=True),
         Column('order_cd', Integer, ForeignKey('order_cd.id'), nullable=False),
-        Column('pizza', Integer, ForeignKey('pizza.id'), nullable=False)
+        Column('pizza', Integer, ForeignKey('pizza.id'), nullable=False),
+        Column('quantity', Integer, nullable=False)
         )
 
     # Creat all tables

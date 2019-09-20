@@ -124,3 +124,4 @@ class Pizza_ordered(Base):
     id = Column(Integer, primary_key=True)
     order_cd = Column(Integer, ForeignKey('order_cd.id'), nullable=False)
     pizza = Column(Integer, ForeignKey('pizza.id'), nullable=False)
+    quantity = Column(Integer)

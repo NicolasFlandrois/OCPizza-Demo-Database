@@ -129,7 +129,7 @@ def populate(dbname, jsondata):
                     for p in pizza:
                         if p[1] == o_pizza:
                             pizza_ordered = Pizza_ordered(order_cd=o[0],
-                                                          pizza=p[0])
+                                                          pizza=p[0], quantity=1)
                             session.add(pizza_ordered)
 
     session.commit()
